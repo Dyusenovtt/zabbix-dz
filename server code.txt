@@ -1,0 +1,114 @@
+Linux compute-vm-2-1-5-hdd-1775125195695 6.1.0-44-amd64 #1 SMP PREEMPT_DYNAMIC Debian 6.1.164-1 (2026-03-09) x86_64
+
+The programs included with the Debian GNU/Linux system are free software;
+the exact distribution terms for each program are described in the
+individual files in /usr/share/doc/*/copyright.
+
+Debian GNU/Linux comes with ABSOLUTELY NO WARRANTY, to the extent
+permitted by applicable law.
+student2@compute-vm-2-1-5-hdd-1775125195695:~$ sudo apt update
+Get:1 http://mirror.yandex.ru/debian bookworm InRelease [151 kB]
+Get:2 http://mirror.yandex.ru/debian bookworm-updates InRelease [55.4 kB]                     
+Get:3 http://mirror.yandex.ru/debian bookworm-backports InRelease [59.4 kB]
+Get:4 http://security.debian.org bookworm-security InRelease [48.0 kB]
+Get:5 http://mirror.yandex.ru/debian bookworm/main Sources [9,495 kB]
+Get:6 http://mirror.yandex.ru/debian bookworm/main amd64 Packages [8,792 kB]
+Get:7 http://mirror.yandex.ru/debian bookworm/main Translation-en [6,108 kB]
+0% [5 Sources store 0 B] [7 Translation-en 1,364 kB/6,108 kB 22%]
+Get:8 http://mirror.yandex.ru/debian bookworm/main amd64 Contents (deb) [11.6 MB]
+Get:9 http://security.debian.org bookworm-security/main Sources [185 kB]
+Get:10 http://mirror.yandex.ru/debian bookworm/main all Contents (deb) [34.0 MB]               
+Get:11 http://security.debian.org bookworm-security/main amd64 Packages [294 kB]         
+Get:12 http://security.debian.org bookworm-security/main Translation-en [179 kB]               
+Get:13 http://mirror.yandex.ru/debian bookworm-updates/main Sources [3,288 B]        
+Get:14 http://mirror.yandex.ru/debian bookworm-updates/main amd64 Packages [6,924 B]
+Get:15 http://mirror.yandex.ru/debian bookworm-updates/main Translation-en [5,448 B]
+Get:16 http://mirror.yandex.ru/debian bookworm-updates/main amd64 Contents (deb) [17.1 kB]
+Get:17 http://mirror.yandex.ru/debian bookworm-updates/main all Contents (deb) [46.3 kB]
+Get:18 http://mirror.yandex.ru/debian bookworm-backports/main Sources [300 kB]
+Get:19 http://mirror.yandex.ru/debian bookworm-backports/main amd64 Packages [305 kB]
+Get:20 http://mirror.yandex.ru/debian bookworm-backports/main Translation-en [257 kB]
+Get:21 http://mirror.yandex.ru/debian bookworm-backports/main amd64 Contents (deb) [2,142 kB]
+Get:22 http://mirror.yandex.ru/debian bookworm-backports/main all Contents (deb) [4,820 kB]
+Fetched 78.9 MB in 8s (10.4 MB/s)                                                                                                                                           
+Reading package lists... Done
+Building dependency tree... Done
+Reading state information... Done
+5 packages can be upgraded. Run 'apt list --upgradable' to see them.
+N: Repository 'Debian bookworm' changed its 'firmware component' value from 'non-free' to 'non-free-firmware'
+N: More information about this can be found online in the Release notes at: https://www.debian.org/releases/bookworm/amd64/release-notes/ch-information.html#non-free-split
+student2@compute-vm-2-1-5-hdd-1775125195695:~$ wget https://repo.zabbix.com/zabbix/6.0/debian/pool/main/z/zabbix-release/zabbix-release_latest_6.0+debian12_all.deb
+--2026-04-02 10:25:52--  https://repo.zabbix.com/zabbix/6.0/debian/pool/main/z/zabbix-release/zabbix-release_latest_6.0+debian12_all.deb
+Resolving repo.zabbix.com (repo.zabbix.com)... 178.128.6.101, 2604:a880:2:d0::2062:d001
+Connecting to repo.zabbix.com (repo.zabbix.com)|178.128.6.101|:443... connected.
+HTTP request sent, awaiting response... 200 OK
+Length: 3448 (3.4K) [application/octet-stream]
+Saving to: ‘zabbix-release_latest_6.0+debian12_all.deb’
+
+zabbix-release_latest_6.0+debian12_all.deb  100%[========================================================================================>]   3.37K  --.-KB/s    in 0s      
+
+2026-04-02 10:25:53 (53.1 MB/s) - ‘zabbix-release_latest_6.0+debian12_all.deb’ saved [3448/3448]
+
+student2@compute-vm-2-1-5-hdd-1775125195695:~$ dpkg -i zabbix-release_latest_6.0+debian12_all.deb
+dpkg: error: requested operation requires superuser privilege
+student2@compute-vm-2-1-5-hdd-1775125195695:~$ sudo su dpkg -i zabbix-release_latest_6.0+debian12_all.deb
+su: invalid option -- 'i'
+Try 'su --help' for more information.
+student2@compute-vm-2-1-5-hdd-1775125195695:~$ sudo dpkg -i zabbix-release_latest_6.0+debian12_all.deb
+Selecting previously unselected package zabbix-release.
+(Reading database ... 34799 files and directories currently installed.)
+Preparing to unpack zabbix-release_latest_6.0+debian12_all.deb ...
+Unpacking zabbix-release (1:6.0-5+debian12) ...
+Setting up zabbix-release (1:6.0-5+debian12) ...
+student2@compute-vm-2-1-5-hdd-1775125195695:~$ sudo su
+root@compute-vm-2-1-5-hdd-1775125195695:/home/student2# ^[[200~sudo apt install zabbix-agent -y
+bash: $'\E[200~sudo': command not found
+root@compute-vm-2-1-5-hdd-1775125195695:/home/student2# sudo apt install zabbix-agent -y
+Reading package lists... Done
+Building dependency tree... Done
+Reading state information... Done
+The following additional packages will be installed:
+  libcurl3-gnutls libmodbus5 usbutils
+The following NEW packages will be installed:
+  libcurl3-gnutls libmodbus5 usbutils zabbix-agent
+0 upgraded, 4 newly installed, 0 to remove and 5 not upgraded.
+Need to get 1,166 kB of archives.
+After this operation, 2,680 kB of additional disk space will be used.
+Get:1 http://mirror.yandex.ru/debian bookworm/main amd64 libcurl3-gnutls amd64 7.88.1-10+deb12u14 [386 kB]
+Get:2 http://mirror.yandex.ru/debian bookworm/main amd64 libmodbus5 amd64 3.1.6-2.1 [31.3 kB]
+Get:3 http://mirror.yandex.ru/debian bookworm/main amd64 zabbix-agent amd64 1:6.0.14+dfsg-1+b1 [675 kB]
+Get:4 http://mirror.yandex.ru/debian bookworm/main amd64 usbutils amd64 1:014-1+deb12u1 [73.5 kB]
+Fetched 1,166 kB in 0s (11.5 MB/s)  
+Selecting previously unselected package libcurl3-gnutls:amd64.
+(Reading database ... 34805 files and directories currently installed.)
+Preparing to unpack .../libcurl3-gnutls_7.88.1-10+deb12u14_amd64.deb ...
+Unpacking libcurl3-gnutls:amd64 (7.88.1-10+deb12u14) ...
+Selecting previously unselected package libmodbus5:amd64.
+Preparing to unpack .../libmodbus5_3.1.6-2.1_amd64.deb ...
+Unpacking libmodbus5:amd64 (3.1.6-2.1) ...
+Selecting previously unselected package zabbix-agent.
+Preparing to unpack .../zabbix-agent_1%3a6.0.14+dfsg-1+b1_amd64.deb ...
+Unpacking zabbix-agent (1:6.0.14+dfsg-1+b1) ...
+Selecting previously unselected package usbutils.
+Preparing to unpack .../usbutils_1%3a014-1+deb12u1_amd64.deb ...
+Unpacking usbutils (1:014-1+deb12u1) ...
+Setting up libmodbus5:amd64 (3.1.6-2.1) ...
+Setting up libcurl3-gnutls:amd64 (7.88.1-10+deb12u14) ...
+Setting up usbutils (1:014-1+deb12u1) ...
+Setting up zabbix-agent (1:6.0.14+dfsg-1+b1) ...
+
+Creating config file /etc/zabbix/zabbix_agentd.conf with new version
+Created symlink /etc/systemd/system/multi-user.target.wants/zabbix-agent.service → /lib/systemd/system/zabbix-agent.service.
+Processing triggers for libc-bin (2.36-9+deb12u13) ...
+root@compute-vm-2-1-5-hdd-1775125195695:/home/student2# systemctl restart zabbix-agent 
+root@compute-vm-2-1-5-hdd-1775125195695:/home/student2# systemctl enable zabbix-agent
+Synchronizing state of zabbix-agent.service with SysV service script with /lib/systemd/systemd-sysv-install.
+Executing: /lib/systemd/systemd-sysv-install enable zabbix-agent
+root@compute-vm-2-1-5-hdd-1775125195695:/home/student2# 
+sudo nano /etc/zabbix/zabbix_agentd.conf
+root@compute-vm-2-1-5-hdd-1775125195695:/home/student2# sudo systemctl restart zabbix-agent
+root@compute-vm-2-1-5-hdd-1775125195695:/home/student2# cat /var/log/zabbix/zabbix_agentd.log
+cat: /var/log/zabbix/zabbix_agentd.log: No such file or directory
+root@compute-vm-2-1-5-hdd-1775125195695:/home/student2# sudo cat /var/log/zabbix/zabbix_agentd.log
+cat: /var/log/zabbix/zabbix_agentd.log: No such file or directory
+root@compute-vm-2-1-5-hdd-1775125195695:/home/student2# 
