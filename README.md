@@ -1,3 +1,4 @@
+"Система мониторинга Zabbix" Тимур Дюсенов
 Задание 1
 1. Обновление системы
 sudo apt update && sudo apt upgrade -y
